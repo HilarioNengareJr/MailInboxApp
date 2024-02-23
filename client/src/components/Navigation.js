@@ -98,12 +98,10 @@ const Navigation = () => {
                 </nav>
 
                 <div className="header-actions">
-                    <Link to='/inbox'>
-                        <button className="header-action-btn d-lg-none" aria-label="notifications" title="Notifications" onClick={toggleNavbar}>
-                            <ion-icon name="notifications-outline" aria-hidden="true"></ion-icon>
-                            <span className="btn-badge">{unreadMessages.length}</span>
-                        </button>
-                    </Link>
+                    <button className="header-action-btn d-lg-none" aria-label="notifications" title="Notifications" onClick={toggleNavbar}>
+                        <ion-icon name="notifications-outline" aria-hidden="true"></ion-icon>
+                        <span className="btn-badge">{unreadMessages.length}</span>
+                    </button>
                     <button className="header-action-btn" aria-label="open menu" onClick={toggleNavbar}>
                         <ion-icon name="menu-outline" aria-hidden="true"></ion-icon>
                     </button>

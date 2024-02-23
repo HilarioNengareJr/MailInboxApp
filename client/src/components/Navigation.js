@@ -67,12 +67,12 @@ const Navigation = () => {
 
                         <li className="navbar-item">
                             <Link to='/' className="navbar-link a" onClick={toggleNavbar}>
-                                Home
+                                Home Page
                             </Link>
                         </li>
                         <li className="navbar-item d-lg-none">
                             <Link to={`/user/${userId}/messages`}  className="navbar-link a" onClick={toggleNavbar}>
-                                Inbox
+                                Inbox Page
                             </Link>
                         </li>
                         <li className="navbar-item d-sm-none">

@@ -1,0 +1,145 @@
+openapi: 3.0.0
+info:
+  version: 1.0.0
+  title: Mail Inbox API
+  description: Mail Inbox simulator
+
+paths:
+  /api/user/{userId}/messages:
+    get:
+      summary: Retrieve messages for a user
+      parameters:
+        - name: userId
+          in: path
+          required: true
+          description: ID of the user
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              example:
+                userId: 1
+                userName: "Jim"
+                messages:
+                  - id: 1
+                    subject: "Hi Again"
+                    content: "Just wanted to check on you."
+                    isRead: false
+                  - id: 2
+                    subject: "Hi Friend"
+                    content: "Just wanted to let you know I'm good."
+                    isRead: false
+                  - id: 3
+                    subject: "Me Again"
+                    content: "How are you?"
+                    isRead: false
+                  - id: 4
+                    subject: "Message 1"
+                    content: "Hello my friend, how is life treating you"
+                    isRead: false
+                  - id: 5
+                    subject: "Me Again"
+                    content: "How are you? Wanted to check on how things are doing."
+                    isRead: false
+                  - id: 6
+                    subject: "Liverpool won"
+                    content: "Bro, our soccer team won the UEFA champions league!!!!"
+                    isRead: false
+                  - id: 7
+                    subject: "You Received A Job Offer!"
+                    content: "Just wanted to let you know that you will be joining our team at MBL Hightech. Congrats!!"
+                    isRead: false
+                  - id: 8
+                    subject: "Take out the chicken"
+                    content: "Hey, I am running late, can you take out the chicken from the freezer."
+                    isRead: false
+                  - id: 9
+                    subject: "Movie Night."
+                    content: "You are hosting movie night, make popcorn and get diet cokes!!"
+                    isRead: false
+                  - id: 10
+                    subject: "Backlogs"
+                    content: "Can you give an update on backlog progress please, and thanks!"
+                    isRead: false
+        '404':
+          description: User not found
+          content:
+            application/json:
+              example:
+                error: "User not found"
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              example:
+                error: "Internal Server Error"
+
+  /api/message/{messageId}:
+    get:
+      summary: Retrieve a specific message by ID
+      parameters:
+        - name: messageId
+          in: path
+          required: true
+          description: ID of the message
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              example:
+                id: 1
+                subject: "Hi Again"
+                content: "Just wanted to check on you."
+                isRead: true
+        '404':
+          description: Message not found
+          content:
+            application/json:
+              example:
+                error: "Message not found"
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              example:
+                error: "Internal Server Error"
+
+components:
+  schemas:
+    User:
+      type: object
+      properties:
+        userId:
+          type: integer
+        userName:
+          type: string
+      required:
+        - userId
+        - userName
+
+    Message:
+      type: object
+      properties:
+        id:
+          type: integer
+        subject:
+          type: string
+        content:
+          type: string
+        isRead:
+          type: boolean
+      required:
+        - id
+        - subject
+        - content
+        - isRead
+
+servers:
+  - description: SwaggerHub API Auto Mocking
+    url: https://virtserver.swaggerhub.com/HNENGARE/mailinboxapi/1.0.0

@@ -109,7 +109,7 @@ const Navigation = () => {
                 </div>
 
             </div>
-        </header >
+        </header>
     );
 }
 

@@ -1,7 +1,7 @@
 const express = require('express');
 const path = require('path');
 const { User, Message } = require('./db');
-const { preDefinedUserData } = require('./dummy_data');
+const { preDefinedUserData } = require('./dummyData');
 
 const app = express();
 const PORT = process.env.PORT || 3000;

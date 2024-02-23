@@ -378,6 +378,14 @@ body {
   100% { box-shadow: 0 0 0 40px transparent; }
 }
 
+.overflow-none {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  max-width: inherit;
+}
+
+
 /* MEDIA QUERIES */
 
 @media (max-width: 991px) {

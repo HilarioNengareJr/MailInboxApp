@@ -70,11 +70,20 @@ const Navigation = () => {
                                 Home Page
                             </Link>
                         </li>
-                        <li className="navbar-item d-lg-none">
-                            <Link to={`/user/${userId}/messages`}  className="navbar-link a" onClick={toggleNavbar}>
+                        <li className="navbar-item d-lg-none border-bottom">
+                            <Link to={`/user/${userId}/messages`} className="navbar-link a" onClick={toggleNavbar}>
                                 Inbox Page
                             </Link>
                         </li>
+                        {
+                            unreadMessages.map(unreadMessage => (
+                                <li key={unreadMessage.id} className='nav-item overflow-none d-lg-none'>
+                                    <Link to={`/message/${unreadMessage.id}`} className='navbar-link a' onClick={toggleNavbar}>
+                                        {unreadMessage.subject}
+                                    </Link>
+                                </li>
+                            ))
+                        }
                         <li className="navbar-item d-sm-none">
                             <Link to={`/user/${userId}/messages`} className="navbar-link a" onClick={toggleNavbar}>
                                 <StyledSpan>
@@ -90,7 +99,7 @@ const Navigation = () => {
 
                 <div className="header-actions">
                     <Link to='/inbox'>
-                        <button className="header-action-btn d-lg-none" aria-label="notifications" title="Notifications">
+                        <button className="header-action-btn d-lg-none" aria-label="notifications" title="Notifications" onClick={toggleNavbar}>
                             <ion-icon name="notifications-outline" aria-hidden="true"></ion-icon>
                             <span className="btn-badge">{unreadMessages.length}</span>
                         </button>

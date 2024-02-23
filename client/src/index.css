@@ -381,6 +381,7 @@ body {
 /* MEDIA QUERIES */
 
 @media (max-width: 991px) {
+
   .logo {
     font-family: var(--ff-anta);
     font-size: var(--fs-2);

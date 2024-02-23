@@ -70,9 +70,14 @@ const Navigation = () => {
                                 Home
                             </Link>
                         </li>
+                        <li className="navbar-item d-lg-none">
+                            <Link to={`/user/${userId}/messages`}  className="navbar-link a" onClick={toggleNavbar}>
+                                Inbox
+                            </Link>
+                        </li>
                         <li className="navbar-item d-sm-none">
                             <Link to={`/user/${userId}/messages`} className="navbar-link a" onClick={toggleNavbar}>
-                                <StyledSpan className="d-sm-none">
+                                <StyledSpan>
                                     Inbox
                                 </StyledSpan>
                                 <ion-icon name="notifications-outline" aria-hidden="true"></ion-icon>
